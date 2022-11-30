@@ -1,5 +1,5 @@
-import { remark } from 'remark';
-import html from 'remark-html';
+const { promises: remark } = require('remark')
+const html = require('remark-html')
 
 const { promises: fs } = require('fs')
 const path = require('path')
