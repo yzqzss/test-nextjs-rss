@@ -26,7 +26,7 @@ async function generate() {
         url: '/posts/' + name.replace(/\.mdx?/, ''),
         date: frontmatter.data.date,
         description: frontmatter.data.description,
-        content:encoded: frontmatter.content,
+        content: frontmatter.content,
         categories: frontmatter.data.tag.split(', '),
         author: frontmatter.data.author
       })
