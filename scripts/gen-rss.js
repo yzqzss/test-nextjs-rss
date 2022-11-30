@@ -1,10 +1,10 @@
 import {remark} from 'remark'
 import html from 'remark-html'
 
-const { promises: fs } = require('fs')
-const path = require('path')
-const RSS = require('rss')
-const matter = require('gray-matter')
+const { promises: fs } = import('fs')
+const path = import('path')
+const RSS = import('rss')
+const matter = import('gray-matter')
 async function generate() {
   const feed = new RSS({
     title: 'Your Name',
