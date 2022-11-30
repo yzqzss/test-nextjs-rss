@@ -2,7 +2,7 @@ const { promises: fs } = require('fs')
 const path = require('path')
 const RSS = require('rss')
 const matter = require('gray-matter')
-const markdown = require('markdown').markdown;
+const markdown = require('markdown').markdown
 
 async function generate() {
   const feed = new RSS({
