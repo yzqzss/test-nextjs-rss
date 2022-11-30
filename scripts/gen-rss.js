@@ -1,10 +1,8 @@
-import {remark} from 'remark'
-import html from 'remark-html'
-
 const { promises: fs } = require('fs')
 const path = require('path')
 const RSS = require('rss')
 const matter = require('gray-matter')
+const markdown = require('markdown').markdown;
 
 async function generate() {
   const feed = new RSS({
@@ -24,17 +22,12 @@ async function generate() {
       )
       const frontmatter = matter(content)
       
-      const processedContent = await remark()
-        .use(html)
-        .process(frontmatter.content);
-      const contentHtml = processedContent.toString();
-      
       feed.item({
         title: frontmatter.data.title,
         url: '/posts/' + name.replace(/\.mdx?/, ''),
         date: frontmatter.data.date,
         description: frontmatter.data.description,
-        content: contentHtml,
+        content: markdown.toHTML(frontmatter.content),
         categories: frontmatter.data.tag.split(', '),
         author: frontmatter.data.author
       })
