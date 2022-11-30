@@ -1,4 +1,4 @@
-const {remark} = require('remark')
+const remark = require('remark')
 const html = require('remark-html')
 
 const { promises: fs } = require('fs')
